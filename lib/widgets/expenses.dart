@@ -95,6 +95,13 @@ class _ExpensesState extends State<Expenses> {
 
 //
 //
+  void _removeExpense(Expense expense) {
+    setState(() {
+      _registeredExpenses.remove(expense);
+    });
+  }
+//
+//
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +127,10 @@ class _ExpensesState extends State<Expenses> {
       body: Column(children: [
         const Text('the chart'),
         Expanded(
-          child: ExpensesList(expenses: _registeredExpenses),
+          child: ExpensesList(
+            expenses: _registeredExpenses,
+            onRemoveExpense: _removeExpense,
+          ),
           //We are using "ExpnasesList" class here & passing
           //"_registeredExpenses" to the "expenses" function.
           //We have also put an "Expanded" widget, as otherwise calling a "List"

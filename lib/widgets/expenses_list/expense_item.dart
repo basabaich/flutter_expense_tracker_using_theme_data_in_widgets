@@ -33,10 +33,20 @@ class ExpenseItem extends StatelessWidget {
           padding: const EdgeInsets.symmetric(
             horizontal: 20,
             vertical: 16,
-          ),
+          ), //EdgeInsets.symmetric
           child: Column(
+            //This will push the title to the left of the card
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(expense.title),
+              //############################## using theme data ###########
+              //Using the themedata in this widget with global theme variables
+              Text(
+                expense.title,
+                style: Theme.of(context).textTheme.titleLarge, //Themedata
+                //used here. The "Theme.of(context)" called to connect with
+                //our global variable and color / text scheme in the main.dart
+                //file.
+              ), //Text
               const SizedBox(height: 4),
               Row(
                 children: [

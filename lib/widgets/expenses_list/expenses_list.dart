@@ -9,8 +9,13 @@ import 'package:flutter/material.dart';
 import '../../../../../models/expense.dart';
 
 class ExpensesList extends StatelessWidget {
-  const ExpensesList({super.key, required this.expenses});
+  const ExpensesList({
+    super.key,
+    required this.expenses,
+    required this.onRemoveExpense,
+  });
   final List<Expense> expenses;
+  final void Function(Expense expense) onRemoveExpense;
   @override
   Widget build(BuildContext context) {
     //
@@ -36,7 +41,23 @@ class ExpensesList extends StatelessWidget {
     //
     return ListView.builder(
       itemCount: expenses.length,
-      itemBuilder: (ctx, index) => ExpenseItem(expenses[index]),
+      itemBuilder: (ctx, index) => Dismissible(
+        key: ValueKey(expenses[index]),
+        //#################### USING THE GLOBAL THEME DATA ################
+        //Effect showing the background while sweeping cards in any direction
+        //to remove the card / or deleting the data. Here we are using the
+        //global Theme data
+        background: Container(
+          color: Theme.of(context).colorScheme.error.withOpacity(0.75),
+          margin: EdgeInsets.symmetric(
+            horizontal: Theme.of(context).cardTheme.margin!.horizontal,
+          ), //EdgeInsets.symmetric
+        ), //Container
+        onDismissed: (direction) {
+          onRemoveExpense(expenses[index]);
+        },
+        child: ExpenseItem(expenses[index]),
+      ), //Dismissible
       //The "ListView.builder()" has many variables. The most important ones
       //are "itemBuilder" & "itemCount".
       //An unknown variable is passed on for the "itemBuilder". Here it is
