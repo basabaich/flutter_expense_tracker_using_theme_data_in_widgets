@@ -339,9 +339,9 @@ class _NewExpenseState extends State<NewExpense> {
                   //curly braces we pass the "Navigator.pop()" method which
                   //will automatically close the "Modal bottom sheet".
                 },
-                style: ButtonStyle(
-                  elevation: const MaterialStatePropertyAll(26),
-                  backgroundColor: MaterialStatePropertyAll(Colors.red[800]),
+                style: const ButtonStyle(
+                  elevation: MaterialStatePropertyAll(26),
+                  // backgroundColor: MaterialStatePropertyAll(Colors.red[800]),
                 ), //ButtonStyle
                 child: const Text(
                   'Cancel',
@@ -359,11 +359,10 @@ class _NewExpenseState extends State<NewExpense> {
                   // print(_amountController);
                   // widget.onAddExpense(Expense(title: _titleController, amount: _amountController, date: _selectedDate, category: _))
                 },
-                style: ButtonStyle(
-                  elevation: const MaterialStatePropertyAll(26),
-                  backgroundColor: MaterialStatePropertyAll(
-                    Colors.yellow[800],
-                  ), //MaterialStatePropertyAll
+                style: const ButtonStyle(
+                  elevation: MaterialStatePropertyAll(26),
+                  // backgroundColor: MaterialStatePropertyAll(
+                  //     Colors.yellow[800]), //MaterialStatePropertyAll
                 ), //ButtonStyle
                 child: const Text(
                   'Submit',

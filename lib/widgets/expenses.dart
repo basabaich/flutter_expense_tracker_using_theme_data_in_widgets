@@ -103,10 +103,10 @@ class _ExpensesState extends State<Expenses> {
       appBar: AppBar(
         title: const Text(
           'Flutter Expense Tracker',
-          style: TextStyle(fontSize: 14),
+          //style: TextStyle(fontSize: 14),
         ), //Text
-        elevation: 4,
-        backgroundColor: Colors.amber.shade700,
+        // elevation: 4,
+        //backgroundColor: Colors.amber.shade700,
         actions: [
           IconButton(
             onPressed: _openAddExpenseOverlay,
