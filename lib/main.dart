@@ -29,12 +29,36 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       //##########  THEME IS DEFINED HERE AS DEFAULT   #################
       theme: ThemeData().copyWith(
-          useMaterial3: true,
-          colorScheme: kColorScheme,
-          appBarTheme: const AppBarTheme().copyWith(
-            backgroundColor: kColorScheme.onPrimaryContainer,
-            foregroundColor: kColorScheme.primaryContainer,
-          )),
+        useMaterial3: true,
+        colorScheme: kColorScheme,
+        appBarTheme: const AppBarTheme().copyWith(
+          backgroundColor: kColorScheme.onPrimaryContainer,
+          foregroundColor: kColorScheme.primaryContainer,
+        ),
+        //Using Card themeing process here with global variable
+        cardTheme: const CardTheme().copyWith(
+          color: kColorScheme.background,
+          elevation: 4,
+          shadowColor: kColorScheme.onSurface,
+          margin: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 8,
+          ), //EdgeInsets.Symmetric
+        ),
+        //Using elevated button theme
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: kColorScheme.primaryContainer,
+          ),
+        ), //ElevatedButtonThemeData
+        //Text theme parameter setting
+        textTheme: ThemeData().textTheme.copyWith(
+              titleLarge: TextStyle(
+                  fontWeight: FontWeight.normal,
+                  color: kColorScheme.onSecondaryContainer,
+                  fontSize: 14), //TextStyle
+            ),
+      ),
       //##########  THEME IS DEFINED HERE AS DEFAULT   #################
       home: const Expenses(), //We are calling the class / method "Expensees()"
     ); //MaterialApp
