@@ -13,9 +13,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Expenses(), //We are calling the class / method "Expensees()"
+      theme: ThemeData().copyWith(
+        useMaterial3: true,
+        scaffoldBackgroundColor: const Color.fromARGB(255, 250, 245, 196),
+      ),
+      home: const Expenses(), //We are calling the class / method "Expensees()"
     ); //MaterialApp
   }
 }
