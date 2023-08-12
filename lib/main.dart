@@ -15,10 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      //##########  THEME IS DEFINED HERE AS DEFAULT   #################
       theme: ThemeData().copyWith(
         useMaterial3: true,
         scaffoldBackgroundColor: const Color.fromARGB(255, 250, 245, 196),
       ),
+      //##########  THEME IS DEFINED HERE AS DEFAULT   #################
       home: const Expenses(), //We are calling the class / method "Expensees()"
     ); //MaterialApp
   }
